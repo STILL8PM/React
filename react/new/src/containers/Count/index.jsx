@@ -6,30 +6,31 @@ import { createIncrementAction, createDecrementAction, createIncrementAsyncActio
 //引入connect用于连接UI组件与redux
 import { connect } from 'react-redux'
 
-
-/* 
-    mapStateToProps函数返回的是一个对象
-    返回的对象中的key就作为传递给UI组件props的key，value就作为传给给UI组件props的value
-    mapStateToProps用于传递状态
+//映射状态
+/* const mapStateToProps = state => ({ count: state })
  */
-function mapStateToProps(state) {
-    return { count: state }
-}
-
-
-/* 
-    mapDispatchToProps函数返回的是一个对象
-    返回的对象中的key就作为传递给UI组件props的key，value就作为传给给UI组件props的value
-    mapDispatchToProps用于传递操作状态的方法
+//映射操作状态的方法
+/* const mapDispatchToProps = dispatch => ({
+    jia: (number) => dispatch(createIncrementAction(number)),
+    jian: (number) => dispatch(createDecrementAction(number)),
+    jiaAsync: (number, time) => dispatch(createIncrementAsyncAction(number, time)),
+})
  */
-function mapDispatchToProps(dispatch) {
-    return {
-        //通知redux执行加法
+//创建并暴露一个Count的容器组件
+export default connect(
+    state => ({ count: state }),
+
+    //mapDispatchToProps的一般写法
+    /*dispatch => ({
         jia: (number) => dispatch(createIncrementAction(number)),
         jian: (number) => dispatch(createDecrementAction(number)),
-        jiaAsync: (number,time) => dispatch(createIncrementAsyncAction(number,time)),
-    }
-}
+        jiaAsync: (number, time) => dispatch(createIncrementAsyncAction(number, time)),
+    }) */
 
-//创建并暴露一个Count的容器组件
-export default connect(mapStateToProps, mapDispatchToProps)(CountUI)
+    //mapDispatchToProps的简写,react-redux库自动分发dispatch
+    {
+        jia:createIncrementAction,
+        jian:createDecrementAction,
+        jiaAsync:createIncrementAsyncAction,
+    }
+)(CountUI)
