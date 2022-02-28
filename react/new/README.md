@@ -1,6 +1,8 @@
-# 1.求和案例_redux精简版
+# Redux
 
-        (1).去除Count组件自身的状态I
+## 1.求和案例_redux精简版
+
+        (1).去除Count组件自身的状态
         (2).src下建立：
                 -src
                 -redux
@@ -18,3 +20,10 @@
                     传递的action是：{type: '@@redux/INITy.7.o.y.a'}
         (5).在index.js中检测store中状态的改变，一旦发生改变重新渲染<App/>
         备注：redux只负责管理状态，至于状态的改变驱动着页面的展示，要靠我们自己写
+
+## 2.求和案例_redux完整版
+
+        新增文件：
+                1.count_action.js专门用于创建action对象
+                2.constant.js   放置容易写错的type值 
+
