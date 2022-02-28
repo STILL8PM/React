@@ -18,5 +18,3 @@
                     传递的action是：{type: '@@redux/INITy.7.o.y.a'}
         (5).在index.js中检测store中状态的改变，一旦发生改变重新渲染<App/>
         备注：redux只负责管理状态，至于状态的改变驱动着页面的展示，要靠我们自己写
-
-
