@@ -55,8 +55,8 @@ class Count extends Component {
 //创建并暴露一个Count的容器组件
 export default connect(
     state => ({
-        count: state.he,
-        renshu: state.rens.length
+        count: state.count,
+        personCount: state.persons.length
     }),
 
     //mapDispatchToProps的一般写法

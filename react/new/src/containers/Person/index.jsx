@@ -17,13 +17,13 @@ class Person extends Component {
     render() {
         return (
             <div>
-                <h2>我是Person组件,上方组件求和为{this.props.he}</h2>
+                <h2>我是Person组件,上方组件求和为{this.props.count}</h2>
                 <input ref={c => this.nameNode = c} type='text' placeholder='输入名字' />&nbsp;
                 <input ref={c => this.ageNode = c} type='text' placeholder='输入年龄' />&nbsp;
                 <button onClick={this.addPerson}>添加</button>
                 <ul>
                     {
-                        this.props.yiduiren.map((p) => {
+                        this.props.persons.map((p) => {
                             return <li key={p.id}>{p.name}---{p.age}</li>
                         })
                     }
@@ -36,8 +36,8 @@ class Person extends Component {
 
 export default connect(
     state => ({ 
-        yiduiren: state.rens ,
-        he:state.he
+        persons: state.persons ,
+        count:state.count
     }),//映射状态
 
     {

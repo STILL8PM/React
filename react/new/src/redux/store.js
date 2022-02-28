@@ -17,8 +17,8 @@ import {composeWithDevTools} from 'redux-devtools-extension'
 
 //汇总所有reducer变为一个整的reducer
 const allReducer = combineReducers({
-    he:countReducer,
-    rens:personReducer
+    count:countReducer,
+    persons:personReducer
 })
 //暴露store applyMiddleware(thunk)
 export default createStore(allReducer,composeWithDevTools(applyMiddleware(thunk)))
