@@ -12,15 +12,20 @@ export default class Demo extends Component {
             console.log(this.state.count);
         })
         console.log(this.state);
+        //精简--->
+        this.setState({count:this.state.count+1})
          */
 
         //函数式的setState
         /* this.setState((state, props) => {
             console.log(state, props);
             return { count: state.count + 1 }
+        },()=> {
+            console.log(this.state.count);
         }) */
+
+        this.setState(state => ({ count: state.count + 1 }))
         //精简--->
-        this.setState(state=> ({count:state.count+1}))
     }
     render() {
         return (
