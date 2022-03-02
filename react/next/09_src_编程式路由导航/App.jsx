@@ -1,12 +1,12 @@
 import React from 'react'
-import { NavLink, useRoutes,useInRouterContext } from 'react-router-dom'
+import { NavLink, useRoutes } from 'react-router-dom'
 import routes from './routes'
 import Herder from './components/Herder'
 export default function App() {
 
     //根据路由表生成对应的路由规则
     const element = useRoutes(routes)
-    console.log("@",useInRouterContext())//<BrowserRouter>包裹就为true，反之false
+
     return (
         <div>
             <div>
