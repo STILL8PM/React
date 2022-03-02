@@ -1,11 +1,9 @@
 import React from 'react'
-import { NavLink, useRoutes } from 'react-router-dom'
-import routes from './routes'
+import { NavLink, Routes, Route } from 'react-router-dom'
+import Home from './pages/Home'
+import About from './pages/About'
+
 export default function App() {
-
-    //根据路由表生成对应的路由规则
-    const element = useRoutes(routes)
-
     return (
         <div>
             <div>
@@ -18,15 +16,18 @@ export default function App() {
                     <div className="col-xs-2 col-xs-offset-2">
                         <div className="list-group">
                             {/* 路由链接 */}
-                            <NavLink className='list-group-item' to="/about">About</NavLink>
-                            <NavLink className='list-group-item' to="/home">Home</NavLink>
+                            <NavLink className="list-group-item" to="/home">Home</NavLink>
+                            <NavLink className="list-group-item active" to="/about">About</NavLink>
                         </div>
                     </div>
                     <div className="col-xs-6">
                         <div className="panel">
                             <div className="panel-body">
                                 {/* 注册路由 */}
-                                {element}
+                                <Routes>
+                                    <Route path='/home' element={<Home />}></Route>
+                                    <Route path='/about' element={<About />}></Route>
+                                </Routes>
                             </div>
                         </div>
                     </div>
